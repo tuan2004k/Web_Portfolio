@@ -9,7 +9,7 @@ export default function ContactSection() {
           Contact
         </h2>
         <p className="text-xl text-gray-300 mb-12">
-          Let's connect! I'm always open to new opportunities.
+          Let us connect! I am always open to new opportunities.
         </p>
 
         <div className="flex justify-center space-x-6 mb-12">
