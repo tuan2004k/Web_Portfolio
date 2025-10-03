@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import Image from 'next/image';
 interface HeroSectionProps {
   scrollToSection: (id: string) => void;
 }
@@ -123,7 +123,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
               <div className="absolute -inset-4 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full blur-2xl opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
 
               <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 p-2 transform group-hover:scale-105 transition-all duration-500">
-                <img
+                <Image
                   src="/avatar.png"
                   alt="Dau Minh Tuan" // Translated alt text
                   className="w-full h-full object-cover rounded-full border-4 border-slate-800 group-hover:border-teal-400/50 transition-all duration-500"

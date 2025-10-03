@@ -10,16 +10,7 @@ interface Experience {
 }
 
 export default function ExperienceSection() {
-  const experiences: Experience[] = [
-    {
-      title: 'Crew Member',
-      company: 'KFC Vietnam',
-      period: '6/2022 - 9/2024',
-      description: 'Developed communication, teamwork, and problem-solving skills in a fast-paced service environment. Learned to manage time effectively and meet diverse customer needs.',
-      technologies: ['Customer Service', 'Teamwork', 'Time Management', 'Problem Solving'],
-      type: 'work'
-    },
-    {
+  const experiences: Experience[] = [{
       title: 'Full Stack E-Commerce Platform',
       company: 'Personal Project',
       period: '8/2025 - Present',
@@ -42,7 +33,17 @@ export default function ExperienceSection() {
       description: 'Designed and developed a portfolio website with smooth animations, responsive design, and optimized performance. Showcased frontend development skills.',
       technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
       type: 'project'
-    }
+    },
+    {
+      title: 'Crew Member',
+      company: 'KFC Vietnam',
+      period: '6/2022 - 9/2024',
+      description: 'Developed communication, teamwork, and problem-solving skills in a fast-paced service environment. Learned to manage time effectively and meet diverse customer needs.',
+      technologies: ['Customer Service', 'Teamwork', 'Time Management', 'Problem Solving'],
+      type: 'work'
+    },
+    
+    
   ];
 
   const getTypeColor = (type: string) => {

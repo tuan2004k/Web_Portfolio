@@ -3,32 +3,28 @@ import React from 'react';
 export default function SkillsSection() {
   const skillCategories = [
     {
-      category: 'Frontend Developement',
-      // icon: '⚡',
+      category: 'Frontend Development',
       skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML5/CSS3', 'Vue.js']
     },
     {
       category: 'Backend Development',
-      // icon: '🔧',
-      skills: ['Node.js', 'Express.js', 'REST API','MongoDB', 'PostgreSQL', 'MySQL', 'Firebase']
+      skills: ['Node.js', 'Express.js', 'REST API', 'MongoDB', 'PostgreSQL', 'MySQL', 'Firebase']
     },
     {
       category: 'DevOps & Tools',
-      // icon: '🚀',
       skills: ['Git', 'Docker', 'Linux', 'VS Code', 'Vite']
     },
     {
-      category: 'Others ',
-      // icon: '💡',
-      skills: [ 'Figma', 'Responsive Design', 'Problem Solving']
+      category: 'Others',
+      skills: ['Figma', 'Responsive Design', 'Problem Solving']
     }
   ];
 
   return (
-    <section id="skills" className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-4">
-      {/* Hiệu ứng nền tinh tế */}
+    <section id="skills" className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-4 bg-slate-950">
+      {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Sao băng mượt mà */}
+        {/* Shooting Stars */}
         {[...Array(8)].map((_, i) => (
           <div
             key={i}
@@ -47,7 +43,7 @@ export default function SkillsSection() {
           </div>
         ))}
 
-        {/* Particle nền */}
+        {/* Background Particles */}
         {[...Array(20)].map((_, i) => (
           <div
             key={`particle-${i}`}
@@ -62,15 +58,15 @@ export default function SkillsSection() {
           />
         ))}
 
-        {/* Gradient orbs nhẹ */}
-        <div className="absolute top-1/4 -right-20 w-80 h-80 bg-teal-500/5 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/4 -left-20 w-72 h-72 bg-cyan-500/5 rounded-full blur-3xl animate-pulse-slow delay-3000" />
+        {/* Gradient Orbs */}
+        <div className="absolute top-1/4 -right-20 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-1/4 -left-20 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-pulse-slow delay-3000" />
       </div>
 
-      {/* Nội dung chính */}
+      {/* Main Content */}
       <div className="max-w-6xl mx-auto w-full relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center text-gray-100 animate-fade-in-up">
-          Kỹ năng & Công nghệ
+        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent animate-gradient-x">
+          Skills & Technologies
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -80,13 +76,12 @@ export default function SkillsSection() {
               className="group relative animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Glow effect */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-teal-500/10 to-cyan-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Glow Effect */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className="relative bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 hover:border-teal-500/30 transition-all duration-500 group-hover:scale-105">
+              <div className="relative bg-slate-900/70 backdrop-blur-xl rounded-2xl p-8 border border-teal-500/20 hover:border-teal-500/50 transition-all duration-500 group-hover:scale-105 shadow-2xl shadow-teal-500/10 hover:shadow-teal-500/20">
                 <div className="flex items-center mb-6">
-                  <div className="text-3xl mr-4 group-hover:scale-110 transition-transform duration-300"></div>
-                  <h3 className="text-2xl font-bold text-white group-hover:text-teal-400 transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-teal-400 group-hover:text-cyan-400 transition-colors duration-300">
                     {category.category}
                   </h3>
                 </div>
@@ -95,7 +90,7 @@ export default function SkillsSection() {
                   {category.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="px-4 py-2 bg-slate-700/50 text-gray-200 rounded-lg text-sm font-medium hover:bg-teal-500/20 hover:text-teal-300 hover:border-teal-500/30 transition-all duration-300 border border-slate-600/30 hover:scale-105 transform"
+                      className="px-4 py-2 bg-teal-500/10 text-teal-300 rounded-lg text-sm font-medium hover:bg-teal-500/20 hover:text-teal-200 hover:border-teal-400/50 transition-all duration-300 border border-teal-500/20 hover:scale-105 transform"
                       style={{ animationDelay: `${(index * 0.1) + (skillIndex * 0.05)}s` }}
                     >
                       {skill}
@@ -103,7 +98,7 @@ export default function SkillsSection() {
                   ))}
                 </div>
 
-                {/* Corner accents */}
+                {/* Corner Accents */}
                 <div className="absolute top-3 right-3 w-2 h-2 bg-teal-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute bottom-3 left-3 w-2 h-2 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200" />
               </div>
@@ -152,6 +147,11 @@ export default function SkillsSection() {
           50% { opacity: 0.6; }
         }
 
+        @keyframes gradient-x {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+
         .shooting-star-smooth {
           animation: shootingStarSmooth 6s linear infinite;
           width: 40px;
@@ -168,6 +168,11 @@ export default function SkillsSection() {
 
         .animate-pulse-slow {
           animation: pulseSlow 4s ease-in-out infinite;
+        }
+
+        .animate-gradient-x {
+          background-size: 200% 200%;
+          animation: gradient-x 3s ease infinite;
         }
       `}</style>
     </section>
