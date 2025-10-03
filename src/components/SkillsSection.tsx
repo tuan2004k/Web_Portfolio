@@ -3,24 +3,24 @@ import React from 'react';
 export default function SkillsSection() {
   const skillCategories = [
     {
-      category: 'Frontend',
-      icon: '⚡',
-      skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML5/CSS3', 'Redux', 'Vue.js']
+      category: 'Frontend Developement',
+      // icon: '⚡',
+      skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML5/CSS3', 'Vue.js']
     },
     {
-      category: 'Backend',
-      icon: '🔧',
-      skills: ['Node.js', 'Express.js', 'REST API', 'GraphQL', 'MongoDB', 'PostgreSQL', 'MySQL', 'Firebase']
+      category: 'Backend Development',
+      // icon: '🔧',
+      skills: ['Node.js', 'Express.js', 'REST API','MongoDB', 'PostgreSQL', 'MySQL', 'Firebase']
     },
     {
       category: 'DevOps & Tools',
-      icon: '🚀',
-      skills: ['Git', 'Docker', 'AWS', 'CI/CD', 'Linux', 'VS Code', 'Webpack', 'Vite']
+      // icon: '🚀',
+      skills: ['Git', 'Docker', 'Linux', 'VS Code', 'Vite']
     },
     {
-      category: 'Others',
-      icon: '💡',
-      skills: ['Python', 'Jest', 'Agile/Scrum', 'Figma', 'Responsive Design', 'Problem Solving']
+      category: 'Others ',
+      // icon: '💡',
+      skills: [ 'Figma', 'Responsive Design', 'Problem Solving']
     }
   ];
 
@@ -85,7 +85,7 @@ export default function SkillsSection() {
               
               <div className="relative bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 hover:border-teal-500/30 transition-all duration-500 group-hover:scale-105">
                 <div className="flex items-center mb-6">
-                  <div className="text-3xl mr-4 group-hover:scale-110 transition-transform duration-300">{category.icon}</div>
+                  <div className="text-3xl mr-4 group-hover:scale-110 transition-transform duration-300"></div>
                   <h3 className="text-2xl font-bold text-white group-hover:text-teal-400 transition-colors duration-300">
                     {category.category}
                   </h3>
@@ -109,16 +109,6 @@ export default function SkillsSection() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Summary với animation */}
-        <div className="mt-12 text-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-slate-800/50 backdrop-blur-sm rounded-full border border-slate-700/50 hover:border-teal-500/30 transition-all duration-300 group">
-            <span className="text-teal-400 group-hover:scale-110 transition-transform duration-300">🎯</span>
-            <span className="text-gray-300 group-hover:text-teal-300 transition-colors duration-300">
-              Chuyên sâu Frontend, thành thạo Full-stack
-            </span>
-          </div>
         </div>
       </div>
 

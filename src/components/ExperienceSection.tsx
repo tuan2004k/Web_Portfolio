@@ -6,38 +6,76 @@ interface Experience {
   period: string;
   description: string;
   technologies?: string[];
+  type: 'work' | 'project' | 'education';
 }
 
 export default function ExperienceSection() {
   const experiences: Experience[] = [
     {
-      title: 'Senior Developer',
-      company: 'Tech Company',
-      period: '2022 - Hiện tại',
-      description: 'Phát triển và maintain các ứng dụng web quy mô lớn',
-      technologies: ['React', 'TypeScript', 'Node.js', 'AWS']
+      title: 'Crew Member',
+      company: 'KFC Vietnam',
+      period: '6/2022 - 9/2024',
+      description: 'Developed communication, teamwork, and problem-solving skills in a fast-paced service environment. Learned to manage time effectively and meet diverse customer needs.',
+      technologies: ['Customer Service', 'Teamwork', 'Time Management', 'Problem Solving'],
+      type: 'work'
     },
     {
-      title: 'Full Stack Developer',
-      company: 'Startup XYZ',
-      period: '2020 - 2022',
-      description: 'Xây dựng các tính năng mới và tối ưu hiệu suất',
-      technologies: ['Next.js', 'MongoDB', 'Express', 'Docker']
+      title: 'Full Stack E-Commerce Platform',
+      company: 'Personal Project',
+      period: '8/2025 - Present',
+      description: 'Developed a fully-featured e-commerce platform with cart, payment, and product management functionalities. Integrated RESTful API and database design.',
+      technologies: ['React', 'Node.js', 'PostgreSQL', 'Express', 'JWT'],
+      type: 'project'
     },
     {
-      title: 'Junior Developer',
-      company: 'Digital Agency',
-      period: '2018 - 2020',
-      description: 'Học hỏi và phát triển kỹ năng lập trình web',
-      technologies: ['JavaScript', 'HTML/CSS', 'PHP', 'MySQL']
+      title: 'Electric Management System',
+      company: 'Academic Project',
+      period: '9/2025 - Present',
+      description: 'Built an energy management system with a dashboard interface, consumption tracking, and intelligent reporting. Applied knowledge of data visualization.',
+      technologies: ['React', 'TypeScript', 'Python', 'FastAPI', 'Chart.js'],
+      type: 'project'
+    },
+    {
+      title: 'Personal Portfolio Website',
+      company: 'Personal Project',
+      period: '10/2025 - 11/2025',
+      description: 'Designed and developed a portfolio website with smooth animations, responsive design, and optimized performance. Showcased frontend development skills.',
+      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+      type: 'project'
     }
   ];
 
+  const getTypeColor = (type: string) => {
+    switch (type) {
+      case 'work':
+        return 'bg-orange-500/20 text-orange-300 border-orange-500/30';
+      case 'project':
+        return 'bg-teal-500/20 text-teal-300 border-teal-500/30';
+      case 'education':
+        return 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30';
+      default:
+        return 'bg-gray-500/20 text-gray-300 border-gray-500/30';
+    }
+  };
+
+  const getTypeIcon = (type: string) => {
+    switch (type) {
+      case 'work':
+        return '💼';
+      case 'project':
+        return '🚀';
+      case 'education':
+        return '🎓';
+      default:
+        return '⭐';
+    }
+  };
+
   return (
     <section id="experience" className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-4">
-      {/* Hiệu ứng nền sao băng */}
+      {/* Shooting star background effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Sao băng chéo */}
+        {/* Diagonal shooting stars */}
         {[...Array(8)].map((_, i) => (
           <div
             key={i}
@@ -57,7 +95,7 @@ export default function ExperienceSection() {
           </div>
         ))}
 
-        {/* Sao băng ngang */}
+        {/* Horizontal shooting stars */}
         {[...Array(6)].map((_, i) => (
           <div
             key={`horizontal-${i}`}
@@ -97,10 +135,10 @@ export default function ExperienceSection() {
         <div className="absolute bottom-1/3 left-10 w-56 h-56 bg-teal-500/10 rounded-full blur-3xl animate-pulse-slow delay-2000" />
       </div>
 
-      {/* Nội dung chính */}
+      {/* Main content */}
       <div className="max-w-6xl mx-auto w-full relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent animate-gradient-x">
-          Kinh nghiệm
+          Journey
         </h2>
         
         {/* Timeline */}
@@ -128,13 +166,22 @@ export default function ExperienceSection() {
                     <div className={`flex flex-col ${
                       index % 2 === 0 ? 'md:items-end' : 'md:items-start'
                     } mb-4 space-y-2`}>
-                      <h3 className="text-2xl font-bold text-teal-400 group-hover:text-cyan-400 transition-colors">
-                        {exp.title}
-                      </h3>
+                      <div className="flex items-center gap-3">
+                        <span className="text-xl">{getTypeIcon(exp.type)}</span>
+                        <h3 className="text-2xl font-bold text-teal-400 group-hover:text-cyan-400 transition-colors">
+                          {exp.title}
+                        </h3>
+                      </div>
                       <p className="text-lg text-gray-300 font-semibold">{exp.company}</p>
-                      <span className="inline-block px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm font-medium border border-teal-500/30">
-                        {exp.period}
-                      </span>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="inline-block px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm font-medium border border-teal-500/30">
+                          {exp.period}
+                        </span>
+                        <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium border ${getTypeColor(exp.type)}`}>
+                          {exp.type === 'work' ? 'Work Experience' : 
+                           exp.type === 'project' ? 'Personal Project' : 'Academic'}
+                        </span>
+                      </div>
                     </div>
 
                     {/* Description */}
@@ -142,7 +189,7 @@ export default function ExperienceSection() {
                       {exp.description}
                     </p>
 
-                    {/* Technologies */}
+                    {/* Technologies/Skills */}
                     {exp.technologies && (
                       <div className={`flex flex-wrap gap-2 ${
                         index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'

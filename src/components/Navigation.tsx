@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu, X } from 'lucide-react';
-import Cursor from '@/components/Cursor';
+// import Cursor from '@/components/Cursor';
 
 interface NavigationProps {
   isMenuOpen: boolean;
@@ -16,12 +16,18 @@ export default function Navigation({
   scrollToSection 
 }: NavigationProps) {
   const navItems = [
-    { id: 'hero', label: 'Trang chủ' },
-    { id: 'about', label: 'Giới thiệu' },
-    { id: 'experience', label: 'Kinh nghiệm' },
-    { id: 'skills', label: 'Kỹ năng' },
-    { id: 'projects', label: 'Dự án' },
-    { id: 'contact', label: 'Liên hệ' }
+    // Original: Trang chủ
+    { id: 'hero', label: 'Home' }, 
+    // Original: Giới thiệu
+    { id: 'about', label: 'About' },
+    // Original: Kinh nghiệm
+    { id: 'experience', label: 'Experience' },
+    // Original: Kỹ năng
+    { id: 'skills', label: 'Skills' },
+    // Original: Dự án
+    { id: 'projects', label: 'Projects' },
+    // Original: Liên hệ
+    { id: 'contact', label: 'Contact' }
   ];
 
   return (
@@ -32,7 +38,7 @@ export default function Navigation({
           <div className="text-2xl font-bold bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
             Portfolio
           </div>
-          <Cursor />
+          {/* <Cursor /> */}
           
           <div className="hidden md:flex space-x-8">
             {navItems.map(item => (

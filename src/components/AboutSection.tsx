@@ -3,9 +3,9 @@ import React from 'react';
 export default function AboutSection() {
   return (
     <section id="about" className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-4">
-      {/* Hiệu ứng sao băng cải tiến */}
+      {/* Enhanced shooting star effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Sao băng với hiệu ứng thực tế hơn */}
+        {/* Shooting stars with more realistic effect */}
         {[...Array(15)].map((_, i) => (
           <div
             key={i}
@@ -19,9 +19,9 @@ export default function AboutSection() {
             }}
           >
             <div className="w-full h-full relative">
-              {/* Core của sao băng */}
+              {/* Core of the shooting star */}
               <div className="absolute w-2 h-2 bg-white rounded-full blur-sm animate-pulse" />
-              {/* Trail dài với gradient */}
+              {/* Long trail with gradient */}
               <div className="absolute top-1 left-1 w-48 h-1 bg-gradient-to-r from-teal-400/80 via-cyan-400/60 to-transparent rounded-full blur-[1px]" />
               {/* Glow effect */}
               <div className="absolute -inset-1 bg-cyan-400/20 rounded-full blur-md" />
@@ -29,7 +29,7 @@ export default function AboutSection() {
           </div>
         ))}
 
-        {/* Sao băng ngang */}
+        {/* Horizontal shooting stars */}
         {[...Array(10)].map((_, i) => (
           <div
             key={`horizontal-${i}`}
@@ -49,7 +49,7 @@ export default function AboutSection() {
           </div>
         ))}
 
-        {/* Sao nhấp nháy nền */}
+        {/* Background twinkling stars */}
         {[...Array(25)].map((_, i) => (
           <div
             key={`star-${i}`}
@@ -65,7 +65,7 @@ export default function AboutSection() {
           />
         ))}
 
-        {/* Particle effects tinh tế */}
+        {/* Subtle particle effects */}
         {[...Array(12)].map((_, i) => (
           <div
             key={`particle-${i}`}
@@ -82,23 +82,23 @@ export default function AboutSection() {
         ))}
       </div>
 
-      {/* Nội dung chính */}
+      {/* Main content */}
       <div className="max-w-4xl mx-auto relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent animate-gradient-x">
-          Giới thiệu
+          About
         </h2>
         
         <div className="bg-slate-900/70 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-teal-500/30 hover:border-teal-500/50 transition-all duration-500 shadow-2xl shadow-teal-500/10 hover:shadow-teal-500/20">
           <div className="space-y-6">
             <p className="text-xl text-gray-300 leading-relaxed text-justify">
-              Tôi là một developer đam mê công nghệ và luôn học hỏi những điều mới. Với kinh nghiệm trong việc phát triển web, tôi chuyên về việc tạo ra những ứng dụng web hiện đại, responsive và thân thiện với người dùng.
+              I am a developer passionate about technology and always eager to learn new things. With experience in web development, I specialize in creating modern, responsive, and user-friendly web applications.
             </p>
             
             <p className="text-xl text-gray-300 leading-relaxed text-justify">
-              Tôi tin rằng code tốt không chỉ hoạt động được mà còn phải dễ đọc, dễ maintain và mang lại trải nghiệm tuyệt vời cho người dùng.
+              I believe that good code not only works but is also easy to read, maintain, and delivers an excellent user experience.
             </p>
 
-            {/* Thêm các điểm nổi bật */}
+            {/* Highlighted skills */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
               <div className="flex items-center space-x-3 p-3 rounded-lg bg-teal-500/10 border border-teal-500/20">
                 <div className="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></div>

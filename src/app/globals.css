@@ -41,13 +41,8 @@ html {
     opacity: 0;
   }
 }
-* {
-  cursor: none !important;
-}
-/* Tối ưu hiệu suất */
-* {
-  cursor: none !important;
-}
+
+
 
 /* Đảm bảo smooth scrolling */
 html {

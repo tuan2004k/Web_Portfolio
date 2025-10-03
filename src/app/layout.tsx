@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Cursor from '@/components/Cursor'
+// import Cursor from '@/components/Cursor'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="vi" className="scroll-smooth">
-      <body className={inter.className}><Cursor />{children}
+      <body className={inter.className}>{children}
+  
         
       </body>
     </html>
