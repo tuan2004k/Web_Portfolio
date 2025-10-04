@@ -62,13 +62,13 @@ export default function ExperienceSection() {
   const getTypeIcon = (type: string) => {
     switch (type) {
       case 'work':
-        return '💼';
+        return '';
       case 'project':
-        return '🚀';
+        return '';
       case 'education':
-        return '🎓';
+        return '';
       default:
-        return '⭐';
+        return '';
     }
   };
 
