@@ -40,7 +40,7 @@ export default function Navigation({
           </div>
           {/* <Cursor /> */}
           
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-8 cursor-pointer">
             {navItems.map(item => (
               <button
                 key={item.id}

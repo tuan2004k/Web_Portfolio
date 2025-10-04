@@ -99,6 +99,9 @@ export default function ProjectsSection() {
                     <Image
                       src={project.image}
                       alt={project.title}
+                      layout="fill"
+                      objectFit="cover"
+                      
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
                     {/* Animated Overlay */}

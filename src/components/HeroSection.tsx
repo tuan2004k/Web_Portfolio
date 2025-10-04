@@ -125,7 +125,10 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
               <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 p-2 transform group-hover:scale-105 transition-all duration-500">
                 <Image
                   src="/avatar.png"
-                  alt="Dau Minh Tuan" // Translated alt text
+                  alt="Dau Minh Tuan" 
+                  width={384}
+                  height={384}
+                  
                   className="w-full h-full object-cover rounded-full border-4 border-slate-800 group-hover:border-teal-400/50 transition-all duration-500"
                 />
               </div>
