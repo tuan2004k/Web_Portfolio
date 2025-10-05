@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ExternalLink, Github, Globe } from 'lucide-react';
 import Image from 'next/image';
 
@@ -39,59 +40,177 @@ export default function ProjectsSection() {
     }
   ];
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      scale: 0.9
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut" as const
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 50 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut" as const
+      }
+    },
+    hover: {
+      scale: 1.02,
+      y: -5,
+      transition: {
+        duration: 0.3,
+        ease: "easeInOut" as const
+      }
+    }
+  };
+
+  const titleVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut" as const
+      }
+    }
+  };
+
+  const techItemVariants = {
+    hidden: { 
+      opacity: 0, 
+      scale: 0.8 
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut" as const
+      }
+    },
+    hover: {
+      scale: 1.1,
+      backgroundColor: "rgba(34, 211, 238, 0.2)",
+      borderColor: "rgba(34, 211, 238, 0.4)",
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut" as const
+      }
+    }
+  };
+
+  const buttonVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 10 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut" as const
+      }
+    },
+    hover: {
+      scale: 1.05,
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut" as const
+      }
+    }
+  };
+
   return (
     <section id="projects" className="min-h-screen flex items-center py-20 px-4 bg-slate-950/50 relative overflow-hidden">
-      {/* Background Effects */}
+      {/* Simple Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Floating Tech Icons */}
-        {['⚛️', '🚀', '💻', '🔗', '🎨', '⚡'].map((icon, i) => (
-          <div
-            key={i}
-            className="floating-tech-icon absolute text-2xl opacity-20"
-            style={{
-              top: `${20 + Math.random() * 60}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 8}s`,
-              animationDuration: `${15 + Math.random() * 10}s`,
-            }}
-          >
-            {icon}
-          </div>
-        ))}
-
-        {/* Animated Grid */}
-        <div className="absolute inset-0 opacity-5">
-          <div 
-            className="w-full h-full"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(94, 234, 212, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(94, 234, 212, 0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: '50px 50px',
-              animation: 'gridMove 20s linear infinite'
-            }}
-          />
-        </div>
-
-        {/* Pulse Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-teal-500/10 rounded-full blur-xl animate-pulse-orb" />
-        <div className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-cyan-500/10 rounded-full blur-xl animate-pulse-orb delay-2000" />
+        {/* Gradient Orbs */}
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-32 h-32 bg-teal-500/10 rounded-full blur-xl"
+          animate={{
+            opacity: [0.3, 0.6, 0.3],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut" as const
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-cyan-500/10 rounded-full blur-xl"
+          animate={{
+            opacity: [0.2, 0.5, 0.2],
+            scale: [1, 1.05, 1],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut" as const,
+            delay: 2
+          }}
+        />
       </div>
 
       <div className="max-w-6xl mx-auto w-full relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent animate-gradient-x">
+        <motion.h2 
+          className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent"
+          variants={titleVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+        >
           Projects
-        </h2>
+        </motion.h2>
         
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group bg-slate-900/70 backdrop-blur-xl rounded-2xl overflow-hidden border border-teal-500/20 hover:border-teal-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/20 animate-card-enter"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className="group bg-slate-900/70 backdrop-blur-xl rounded-2xl overflow-hidden border border-teal-500/20 hover:border-teal-500/50 transition-all duration-500"
+              variants={cardVariants}
+              whileHover="hover"
             >
-              {/* Project Image with Hover Effect */}
+              {/* Project Image */}
               <div className="h-48 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-cyan-500/20 z-10" />
                 {project.image ? (
@@ -99,12 +218,9 @@ export default function ProjectsSection() {
                     <Image
                       src={project.image}
                       alt={project.title}
-                      layout="fill"
-                      objectFit="cover"
-                      
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                      fill
+                      className="object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
-                    {/* Animated Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                 ) : (
@@ -115,153 +231,135 @@ export default function ProjectsSection() {
                   </div>
                 )}
                 
-                {/* Floating Tech Badge */}
-                <div className="absolute top-4 right-4 transform translate-x-8 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                {/* Tech Badge */}
+                <motion.div 
+                  className="absolute top-4 right-4"
+                  initial={{ opacity: 0, x: 20 }}
+                  whileHover={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <span className="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-medium border border-cyan-500/30 backdrop-blur-sm">
                     {project.tech[0]}
                   </span>
-                </div>
+                </motion.div>
               </div>
 
               {/* Project Content */}
               <div className="p-6 relative">
-                {/* Animated Title Underline */}
-                <div className="relative">
-                  <h3 className="text-2xl font-bold text-teal-400 mb-3 group-hover:text-teal-300 transition-colors duration-300 inline-block">
+                {/* Title */}
+                <motion.div className="relative mb-3">
+                  <motion.h3 
+                    className="text-2xl font-bold text-teal-400 group-hover:text-teal-300 transition-colors duration-300 inline-block"
+                    whileHover={{ color: "#5eead4" }}
+                  >
                     {project.title}
-                  </h3>
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-500" />
-                </div>
+                  </motion.h3>
+                  <motion.div 
+                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400"
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </motion.div>
                 
                 <p className="text-gray-300 mb-4 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                   {project.description}
                 </p>
 
-                {/* Tech Stack with Stagger Animation */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                {/* Tech Stack */}
+                <motion.div 
+                  className="flex flex-wrap gap-2 mb-6"
+                  variants={containerVariants}
+                >
                   {project.tech.map((tech, i) => (
-                    <span
+                    <motion.span
                       key={i}
-                      className="px-3 py-1 bg-teal-500/20 rounded-full text-sm text-teal-300 border border-teal-500/30 hover:bg-teal-500/30 hover:scale-110 hover:shadow-lg hover:shadow-teal-500/20 transition-all duration-300 transform"
-                      style={{ animationDelay: `${(index * 0.2) + (i * 0.1)}s` }}
+                      className="px-3 py-1 bg-teal-500/20 rounded-full text-sm text-teal-300 border border-teal-500/30"
+                      variants={techItemVariants}
+                      whileHover="hover"
                     >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
-                </div>
+                </motion.div>
 
-                {/* Action Buttons with Slide-in Effect */}
-                <div className="flex space-x-4 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-300">
-                  <a
+                {/* Action Buttons */}
+                <motion.div 
+                  className="flex space-x-4"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileHover={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                >
+                  <motion.a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 px-4 py-2 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg text-teal-400 hover:text-teal-300 transition-all duration-300 border border-teal-500/30 hover:border-teal-500/50 flex-1 justify-center hover:scale-105 hover:shadow-lg hover:shadow-teal-500/10"
+                    className="flex items-center space-x-2 px-4 py-2 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg text-teal-400 hover:text-teal-300 transition-all duration-300 border border-teal-500/30 hover:border-teal-500/50 flex-1 justify-center"
+                    variants={buttonVariants}
+                    whileHover="hover"
                   >
                     <Github size={18} />
                     <span>Code</span>
-                  </a>
+                  </motion.a>
                   
                   {project.demoUrl && project.demoUrl !== '#' && (
-                    <a
+                    <motion.a
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 px-4 py-2 bg-teal-500/20 hover:bg-teal-500/30 rounded-lg text-teal-400 hover:text-teal-300 transition-all duration-300 border border-teal-500/30 hover:border-teal-500/50 flex-1 justify-center hover:scale-105 hover:shadow-lg hover:shadow-teal-500/10"
+                      className="flex items-center space-x-2 px-4 py-2 bg-teal-500/20 hover:bg-teal-500/30 rounded-lg text-teal-400 hover:text-teal-300 transition-all duration-300 border border-teal-500/30 hover:border-teal-500/50 flex-1 justify-center"
+                      variants={buttonVariants}
+                      whileHover="hover"
                     >
                       <Globe size={18} />
                       <span>Demo</span>
-                    </a>
+                    </motion.a>
                   )}
-                </div>
+                </motion.div>
 
                 {/* Corner Accents */}
-                <div className="absolute top-2 right-2 w-2 h-2 bg-teal-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-2 left-2 w-2 h-2 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200" />
+                <motion.div 
+                  className="absolute top-2 right-2 w-2 h-2 bg-teal-400 rounded-full"
+                  whileHover={{ opacity: 1 }}
+                  initial={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.div 
+                  className="absolute bottom-2 left-2 w-2 h-2 bg-cyan-400 rounded-full"
+                  whileHover={{ opacity: 1 }}
+                  initial={{ opacity: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                />
               </div>
-
-              {/* Glow Effect */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-500/0 via-cyan-500/10 to-teal-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* View More Projects Button with Animation */}
-        <div className="text-center mt-12 animate-bounce-subtle">
-          <a
+        {/* View More Projects Button */}
+        <motion.div 
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <motion.a
             href="https://github.com/tuan2004k?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-3 px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 rounded-2xl font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/30 relative overflow-hidden group"
+            className="inline-flex items-center space-x-3 px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 rounded-2xl font-semibold text-white transition-all duration-300 relative overflow-hidden group"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
           >
-            {/* Button Shine Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-            
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform translate-x-[-100%] group-hover:translate-x-[100%]"
+              transition={{ duration: 1 }}
+            />
             <Github size={20} className="relative z-10" />
             <span className="relative z-10">View All Projects on GitHub</span>
             <ExternalLink size={18} className="relative z-10" />
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </div>
-
-      <style jsx>{`
-        @keyframes gradient-x {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-
-        @keyframes cardEnter {
-          from {
-            opacity: 0;
-            transform: translateY(30px) scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
-        @keyframes gridMove {
-          0% { transform: translate(0, 0); }
-          100% { transform: translate(50px, 50px); }
-        }
-
-        @keyframes pulseOrb {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 0.6; transform: scale(1.1); }
-        }
-
-        @keyframes bounceSubtle {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-5px); }
-        }
-
-        .animate-gradient-x {
-          background-size: 200% 200%;
-          animation: gradient-x 3s ease infinite;
-        }
-
-        .animate-card-enter {
-          animation: cardEnter 0.6s ease-out both;
-        }
-
-        .floating-tech-icon {
-          animation: float 8s ease-in-out infinite;
-        }
-
-        .animate-pulse-orb {
-          animation: pulseOrb 4s ease-in-out infinite;
-        }
-
-        .animate-bounce-subtle {
-          animation: bounceSubtle 2s ease-in-out infinite;
-        }
-      `}</style>
     </section>
   );
 }
