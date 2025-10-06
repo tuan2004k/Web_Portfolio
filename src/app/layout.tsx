@@ -17,13 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="vi" className="scroll-smooth">
-      <body className={inter.className}>{children}
-  
-        
+      <body className={`${inter.className} relative`}>
+        {children}
       </body>
     </html>
   )
 }
-
-
-

@@ -20,6 +20,7 @@ export default function Navigation({
     { id: 'hero', label: 'Home' }, 
     // Original: Giới thiệu
     { id: 'about', label: 'About' },
+    { id: 'education', label: 'Education' },
     // Original: Kinh nghiệm
     { id: 'experience', label: 'Experience' },
     // Original: Kỹ năng
