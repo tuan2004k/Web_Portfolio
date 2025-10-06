@@ -30,10 +30,22 @@ export default function Portfolio() {
     { id: 'contact', Component: ContactSection, className: 'min-h-screen' },
   ];
 
+  // Cách 1: Sửa type annotation
   const sectionRefs = sections.reduce((acc, { id }) => {
-    acc[id] = useRef(null);
+    acc[id] = useRef<HTMLElement>(null);
     return acc;
   }, {} as Record<string, React.RefObject<HTMLElement>>);
+
+  // Cách 2: Hoặc dùng cách đơn giản hơn
+  // const sectionRefs = {
+  //   hero: useRef<HTMLElement>(null),
+  //   about: useRef<HTMLElement>(null),
+  //   education: useRef<HTMLElement>(null),
+  //   experience: useRef<HTMLElement>(null),
+  //   skills: useRef<HTMLElement>(null),
+  //   projects: useRef<HTMLElement>(null),
+  //   contact: useRef<HTMLElement>(null),
+  // };
 
   // Detect mobile and mount
   useEffect(() => {
@@ -94,7 +106,7 @@ export default function Portfolio() {
       <div className="relative z-10">
         {sections.map(({ id, Component, className }) => (
           <section key={id} id={id} ref={sectionRefs[id]} className={className}>
-            <Component scrollToSection={scrollToSection} />
+            <Component scrollToSection={id === 'hero' ? scrollToSection : undefined} />
           </section>
         ))}
       </div>

@@ -149,66 +149,10 @@ export default function ContactSection() {
           </motion.a>
         </motion.div>
 
-        {/* Contact Info Card */}
-        <motion.div 
-          className="bg-slate-900/70 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-teal-500/30 hover:border-teal-500/50 transition-all duration-500 shadow-2xl shadow-teal-500/10 hover:shadow-teal-500/20 mx-4"
-          variants={itemVariants}
-          whileHover={{ 
-            scale: 1.02,
-            transition: { duration: 0.3 }
-          }}
-        >
-          <div className="space-y-4">
-            <motion.div 
-              className="flex items-center justify-center gap-3"
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Mail size={20} className="text-teal-400 flex-shrink-0" />
-              <a 
-                href="mailto:dautuan032004@gmail.com"
-                className="text-gray-300 hover:text-teal-400 transition-colors break-all sm:break-normal text-sm sm:text-base"
-              >
-                dautuan032004@gmail.com
-              </a>
-            </motion.div>
-            
-            <motion.div 
-              className="flex items-center justify-center gap-3"
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-            >
-              <svg 
-                className="w-5 h-5 text-teal-400 flex-shrink-0" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              <a 
-                href="tel:+84325586629"
-                className="text-gray-300 hover:text-teal-400 transition-colors text-sm sm:text-base"
-              >
-                +84 325 586 629
-              </a>
-            </motion.div>
-          </div>
+       
+          
 
-          {/* Decorative corners */}
-          <motion.div 
-            className="absolute top-3 right-3 w-2 h-2 bg-teal-400 rounded-full"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          />
-          <motion.div 
-            className="absolute bottom-3 left-3 w-2 h-2 bg-cyan-400 rounded-full"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-          />
-        </motion.div>
+          
 
         {/* Optional: Call to Action */}
         <motion.div 
