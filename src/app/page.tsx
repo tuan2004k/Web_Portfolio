@@ -30,10 +30,23 @@ export default function Portfolio() {
     { id: 'contact', Component: ContactSection, className: 'min-h-screen' },
   ];
 
-  const sectionRefs = sections.reduce((acc, { id }) => {
-    acc[id] = useRef(null);
-    return acc;
-  }, {} as Record<string, React.RefObject<HTMLElement>>);
+  const heroRef = useRef<HTMLElement | null>(null);
+  const aboutRef = useRef<HTMLElement | null>(null);
+  const educationRef = useRef<HTMLElement | null>(null);
+  const experienceRef = useRef<HTMLElement | null>(null);
+  const skillsRef = useRef<HTMLElement | null>(null);
+  const projectsRef = useRef<HTMLElement | null>(null);
+  const contactRef = useRef<HTMLElement | null>(null);
+
+  const sectionRefs: Record<string, React.RefObject<HTMLElement | null>> = {
+    hero: heroRef,
+    about: aboutRef,
+    education: educationRef,
+    experience: experienceRef,
+    skills: skillsRef,
+    projects: projectsRef,
+    contact: contactRef,
+  };
 
   // Detect mobile and mount
   useEffect(() => {
@@ -60,7 +73,7 @@ export default function Portfolio() {
     });
 
     return () => observer.disconnect();
-  }, [isMobile]);
+  }, [isMobile, sectionRefs]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);

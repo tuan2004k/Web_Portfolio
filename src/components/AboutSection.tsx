@@ -133,7 +133,7 @@ export default function AboutSection() {
                 { skill: "React & Next.js", color: "cyan" },
                 { skill: "TypeScript", color: "teal" },
                 { skill: "UI/UX Focus", color: "cyan" }
-              ].map((item, index) => (
+              ].map((item) => (
                 <motion.div
                   key={item.skill}
                   variants={skillItemVariants}

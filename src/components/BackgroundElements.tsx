@@ -15,7 +15,15 @@ function BackgroundElements({ isMounted, isMobile }: BackgroundElementsProps) {
 
   const particleCount = isMobile ? 8 : 15;
 
-  const Orb = ({ id, position, size, color, duration }: any) => (
+  interface OrbProps {
+    id: number;
+    position: string;
+    size: string;
+    color: string;
+    duration: number;
+  }
+
+  const Orb = ({ id, position, size, color, duration }: OrbProps) => (
     <motion.div
       key={`orb-${id}`}
       className={`fixed ${position} ${size} ${color} rounded-full blur-3xl`}
