@@ -16,7 +16,7 @@ function BackgroundElements({ isMounted, isMobile }: BackgroundElementsProps) {
   const particleCount = isMobile ? 8 : 15;
 
   interface OrbProps {
-    id: number;
+    id: string | number;
     position: string;
     size: string;
     color: string;
@@ -37,7 +37,7 @@ function BackgroundElements({ isMounted, isMobile }: BackgroundElementsProps) {
     />
   );
 
-  const Particle = ({ id }: any) => {
+  const Particle = ({ id }: { id: number }) => {
     const size = Math.random() * 2 + 0.5;
     return (
       <motion.div
